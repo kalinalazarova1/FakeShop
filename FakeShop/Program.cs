@@ -84,6 +84,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher<UserDocument>, PasswordHasher<UserDocument>>();
 builder.Services.AddScoped<IShoppingCart, ShoppingCart>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<ITestModel>((x) => new TestModel { Replaced = configuration["CosmosDbSettings:EndpointUrl"] });
 
 var app = builder.Build();
 
